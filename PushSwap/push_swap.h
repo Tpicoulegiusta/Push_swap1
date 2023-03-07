@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:22:34 by tpicoule          #+#    #+#             */
-/*   Updated: 2023/03/03 12:36:16 by tpicoule         ###   ########.fr       */
+/*   Updated: 2023/03/07 16:45:15 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,15 @@ typedef struct s_node
 typedef struct s_dblist
 {
 	int				length;
-	struct s_node	*first;
 	struct s_node	*last;
+	struct s_node	*first;
 }	t_dblist;
 
 t_dblist	*dlist_new(void);
 t_dblist	*dlist_add(t_dblist *list, int value);
-t_dblist	*dlist_add_begin(t_dblist *list, int value);
-t_dblist	ft_swap_a(t_dblist *pilea);
+t_dblist	*dlist_add_end(t_dblist *list, int value);
+t_dblist	*ft_dlist_insert(t_dblist *pile, int value, int position);
+void		dlist_free(t_dblist **list);
+void		ft_swap_a(t_node *a, t_node *b);
 
 #endif

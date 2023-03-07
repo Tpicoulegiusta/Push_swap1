@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:39:05 by tpicoule          #+#    #+#             */
-/*   Updated: 2023/03/02 09:41:32 by tpicoule         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:15:57 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_dblist	*dlist_add(t_dblist *list, int value)
 	return (list);
 }
 
-t_dblist	*dlist_add_begin(t_dblist *list, int value)
+t_dblist	*dlist_add_end(t_dblist *list, int value)
 {
 	struct s_node	*new;
 
