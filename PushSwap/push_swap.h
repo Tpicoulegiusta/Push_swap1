@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:22:34 by tpicoule          #+#    #+#             */
-/*   Updated: 2023/03/07 16:45:15 by tpicoule         ###   ########.fr       */
+/*   Updated: 2023/03/09 12:31:53 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ typedef struct s_node
 typedef struct s_dblist
 {
 	int				length;
-	struct s_node	*last;
-	struct s_node	*first;
+	struct s_node	*tail;
+	struct s_node	*head;
 }	t_dblist;
 
 t_dblist	*dlist_new(void);

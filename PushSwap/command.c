@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:10:12 by tpicoule          #+#    #+#             */
-/*   Updated: 2023/03/08 11:09:54 by tpicoule         ###   ########.fr       */
+/*   Updated: 2023/03/09 12:36:39 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	dlist_free(t_dblist **list)
 
 	if (*list != NULL)
 	{
-		tmp = (*list)->first;
+		tmp = (*list)->head;
 		while (tmp != NULL)
 		{
 			del = tmp;
@@ -46,30 +46,15 @@ void	ft_push_a(t_dblist *pilea, t_dblist *pileb)
 
 	if (!pileb || !pilea)
 		return ;
-	new = pileb->last;
-	pileb->last->next->prev = NULL;
-	new->next = pilea->last;
-	pilea->last->prev = new;
+	new = pileb->head;
+	pileb->head->next->prev = NULL;
+	new->next = pilea->head;
+	pilea->head->prev = new;
 }
 
 void	ft_rotate_a(t_dblist *pilea)
 {
-	struct s_node	*tmp2;
-	struct s_node	*tmp;
-	struct s_node	*tmp3;
-
-	if (!pilea)
-		return ;
-	tmp = pilea->last;
-	tmp2 = pilea->first;
-	while (pilea)
-	{
-		pilea->last->prev->prev->value = pilea->last->prev->value;
-	}
-	tmp->prev = NULL;
-	tmp->next = pilea->first->next;
-	tmp2->next = NULL;
-	tmp2->prev = pilea->last->prev;
+	pilea = dlist_add_end(pilea, pilea->head->value);
 }
 
 
