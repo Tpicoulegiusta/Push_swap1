@@ -6,7 +6,7 @@
 /*   By: tpicoule <tpicoule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 12:10:12 by tpicoule          #+#    #+#             */
-/*   Updated: 2023/03/09 12:36:39 by tpicoule         ###   ########.fr       */
+/*   Updated: 2023/03/10 09:24:20 by tpicoule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,49 @@ void	ft_push_a(t_dblist *pilea, t_dblist *pileb)
 	pilea->head->prev = new;
 }
 
-void	ft_rotate_a(t_dblist *pilea)
+t_dblist	*dlist_supp_first(t_dblist *pilea)
 {
-	pilea = dlist_add_end(pilea, pilea->head->value);
+	struct s_node	*tmp;
+
+	if (!pilea)
+		return (NULL);
+	if (pilea->head == pilea->tail)
+		return (free (pilea), NULL);
+	tmp = pilea->head;
+	pilea->head = pilea->head->next;
+	return (free(tmp), pilea);
 }
 
+void	ft_rotate_a(t_dblist *pilea)
+{
+	if (!pilea)
+		return ;
+	pilea = dlist_add_end(pilea, pilea->head->value);
+	pilea = dlist_supp_first(pilea);
+	write(1, "ra\n", 3);
+}
 
+t_dblist	*dlist_supp_end(t_dblist *pilea)
+{
+	struct s_node	*tmp;
+
+	if (!pilea)
+		return (NULL);
+	if (pilea->head == pilea->tail)
+		return (free (pilea), NULL);
+	tmp = pilea->tail;
+	pilea->tail = pilea->tail->next;
+	return (free(tmp), pilea);
+}
+
+void	ft_rotate_b(t_dblist *pilea)
+{
+	if (!pilea)
+		return ;
+	pilea = dlist_add_end(pilea, pilea->head->value);
+	pilea = dlist_supp_end(pilea);
+	write(1, "rb\n", 3);
+}
 
 /* 
 int main(void)
